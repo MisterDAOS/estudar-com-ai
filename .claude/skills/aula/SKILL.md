@@ -54,6 +54,58 @@ de Mayer que valem aqui:
 | Pré-treino | termos-chave **antes** do conceito (`aula.termos`) |
 | Personalização | tom de conversa, 2ª pessoa — é por isso que o tom "de revista" funciona |
 
+## O molde de referência: a aula de Bauhaus
+
+O aluno gostou muito da primeira aula
+(`aulas/2026-11-05-bauhaus-reconhecer-estilo/`) e pediu que as próximas se
+inspirem nela. **Antes de escrever a primeira parte de uma aula nova, leia o
+`aula.js` dela** para pegar o tom e o ritmo. O que a fez funcionar:
+
+1. **Uma ideia que gera o resto.** Em vez de uma lista para decorar, ela acha
+   *a* ideia de onde as características saem (arte + indústria → formas
+   simples, sem ornamento, material à mostra) e a mostra num diagrama
+   "uma ideia → suas consequências". Quem entende a ideia deduz o resto.
+   Ao planejar, formule essa ideia em **uma frase**; se não achar, o recorte
+   ainda está largo ou solto demais.
+2. **Uma lente que o aluno leva embora.** A ideia vira 3–4 perguntas
+   numeradas num `aula.destaque` ("As 4 perguntas para reconhecer a
+   Bauhaus"), usadas **sempre do mesmo jeito** em todos os casos.
+3. **A mesma lente em casos cada vez mais difíceis, com a ajuda diminuindo:**
+   cadeira (`exemplo`, cabe na mão) → prédio (`completar`, escala maior) →
+   objeto sozinho (`problema`). O último caso deve ter uma **reviravolta
+   honesta** que testa a lente (planejado para o bule de Brandt: parece
+   Bauhaus, mas é de prata e ébano, e a própria escola criticava isso).
+4. **Contraste antes da regra.** Dois casos lado a lado (poltrona de 1900 ×
+   cadeira de 1925) e o convite "olhe primeiro, leia depois". O caso que
+   *falha* na lente ensina tanto quanto o que passa.
+5. **Pense antes de revelar.** Peça ao aluno que olhe a imagem uns 20 segundos
+   com as perguntas na cabeça; os passos que ele já consegue dar ficam
+   escondidos (`lacuna: true`).
+6. **A imagem carrega a aula.** Foto real, de licença livre, com o texto ao
+   lado dizendo **para onde olhar** e **o que a imagem não mostra** (o prédio
+   de Dessau não tem "frente"; isso não se vê na foto).
+7. **Mito desfeito, com fonte, e nuances que um resumo apagaria.** "A forma
+   segue a função" não é da Bauhaus, é de Sullivan (1896); a "cadeira
+   Wassily" só ganhou esse nome décadas depois e não foi feita para
+   Kandinsky. O que não foi confirmado fica de fora ou vira "não confirmei"
+   (descreva só o que se vê na foto).
+8. **Checagens no chat que aplicam a lente a um caso novo** ("qual destes
+   objetos passa nas 3 perguntas?"), nunca uma definição para decorar.
+9. **Fecha com alcance:** para onde a ideia foi (influência, consequências),
+   separando o que é **direto** do que é **indireto**.
+
+**Como levar o molde a outros temas** (ideia → lente → casos):
+
+| Tema | Ideia que gera o resto | Lente (perguntas) | Casos |
+|---|---|---|---|
+| Arquitetura, design, arte | a ideia do movimento ou da escola | "o que há de X nisto?" em 3–4 perguntas | objeto → prédio → obra sozinho; contraste com um estilo anterior |
+| Economia | o mecanismo central (causa → efeito) | perguntas para ler um indicador ou uma notícia | dado de um mês → outro país ou período → notícia sozinho |
+| Direito | o princípio ou a razão de ser da norma | o roteiro do `aula.caso` (fatos → questão → normas → entendimentos → conclusão) | caso resolvido → com lacunas → sozinho; contraste: dois casos parecidos com soluções diferentes |
+
+Não force o molde quando o tema não pede (um procedimento, por exemplo, pede
+passos, não "casos"). Os limites continuam valendo: 30 minutos, 3–4 elementos
+novos por bloco, e quem já domina o assunto pula o exemplo resolvido.
+
 ## Antes de começar
 
 1. **Modo** — deduza do pedido; pergunte só se for ambíguo:
@@ -122,7 +174,10 @@ Objetivo: decidir **quanta ajuda** dar em cada assunto da aula.
    - Se surgir uma dúvida nova no meio da aula, faça uma pesquisa pequena (1–2 perguntas).
 2. **Crie a aula** (passo a passo em `ferramenta/BLOCOS.md`): pasta, `index.html`,
    `aula.js` com `aula.inicio(...)` (inclua `nivel`) e `aula.plano([...])` com
-   **3 ou 4 partes** no máximo.
+   **3 ou 4 partes** no máximo. Antes de montar o plano, aplique o molde:
+   qual é a **ideia que gera o resto** (uma frase) e qual é a **lente** (3–4
+   perguntas)? O plano nasce daí: ideia → lente num caso resolvido → a mesma
+   lente com a ajuda diminuindo → alcance.
 3. **Abra a página** para o aluno: **[Claude Code]** `preview_start` com
    `name: "estudo"`. Se não houver essa configuração, rode
    `node ferramenta/servidor.mjs` em segundo plano e abra
@@ -147,7 +202,8 @@ Para **cada parte** do plano, acrescente ao fim do `aula.js`:
    não em receita.
 7. **Checagem no chat**: avise em **uma linha** que a parte está na página
    ("Escrevi a parte 2: o diagrama e o exemplo. Me diga quando terminar de ler.")
-   e, quando ele voltar, faça **1 pergunta** de checagem.
+   e, quando ele voltar, faça **1 pergunta** de checagem que **aplique a lente
+   a um caso novo** (não peça definição decorada).
    - Acertou → a próxima parte pode reduzir a ajuda (exemplo → lacunas → problema).
    - Errou → **não avance**. Explique de outro jeito (outro exemplo, outro
      visual, peça menor) e cheque de novo.
@@ -158,9 +214,12 @@ Para **cada parte** do plano, acrescente ao fim do `aula.js`:
 - O texto repete o que o visual mostra? → corte o texto, deixe só o comentário.
 - A explicação está longe do visual? → junte com o campo `texto`.
 - Exemplo resolvido para quem já domina? → troque por `problema`.
+- Dá para mostrar um **contraste** (caso que falha na lente × caso que passa)? → mostre.
+- A imagem vem com "para onde olhar" e "o que ela não mostra"? → acrescente.
+- Há um mito comum ou uma nuance que um resumo apagaria? → desfaça em 2–3 frases, com fonte.
 
 ### Fase 5 — Fechar (2–3 min)
-1. `aula.destaque(...)` — a ideia central em 1–2 frases.
+1. `aula.destaque(...)` — a ideia central em 1–2 frases (e a lente, se ela ainda não estiver em destaque).
 2. 2–3 `aula.quiz(...)` de revisão (diferentes dos do chat), para o aluno
    refazer depois sozinho, sem gastar IA.
 3. `aula.fontes([...])` — referências **ABNT**, só as realmente usadas e verificadas.

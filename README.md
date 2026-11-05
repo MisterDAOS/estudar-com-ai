@@ -55,6 +55,10 @@ de Direito, a IA lê esses arquivos **antes** de buscar fora.
 | Página de estudo | `ferramenta/` | desenha a aula a partir de `aulas/<pasta>/aula.js` |
 | Blocos disponíveis | `ferramenta/BLOCOS.md` | o "vocabulário" das aulas |
 
+A aula `aulas/2026-11-05-bauhaus-reconhecer-estilo/` é a **aula de referência**:
+as novas seguem o jeito dela (uma ideia que explica o resto, uma lente de
+perguntas, casos cada vez mais difíceis, contrastes e imagens reais).
+
 A aula de demonstração em `aulas/2026-11-05-exemplo-juros-compostos/` mostra
 todos os tipos de bloco. Pode apagá-la (e a linha dela em `aulas/lista.js`)
 quando quiser.

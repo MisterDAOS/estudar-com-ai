@@ -33,6 +33,16 @@ O que for exclusivo do Claude Code está marcado com **[Claude Code]**.
    coerência (nada decorativo), sinalização, sem redundância, contiguidade
    (texto colado na imagem), segmentação, pré-treino e tom conversacional.
 
+## Aula de referência
+
+A aula `aulas/2026-11-05-bauhaus-reconhecer-estilo/` é o **modelo de tom e de
+estrutura** (o aluno gostou muito dela e pediu que as próximas se inspirem
+nela): uma ideia que gera o resto → uma lente de 3–4 perguntas → a mesma
+lente em casos cada vez mais difíceis, com a ajuda diminuindo → contrastes,
+mitos desfeitos e nuances, sempre com imagem real e texto ao lado. Os detalhes
+estão na seção "O molde de referência" de `.claude/skills/aula/SKILL.md`.
+Antes de escrever uma aula nova, leia o `aula.js` dela.
+
 ## Regras inegociáveis
 
 - **Precisão acima do ritmo.** Na menor dúvida sobre um fato, número, data,

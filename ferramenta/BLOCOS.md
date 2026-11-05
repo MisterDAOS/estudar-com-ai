@@ -78,6 +78,29 @@ aula.caso({ titulo: "...",
   conclusao: `fica escondida até o aluno tentar` });
 ```
 
+### Padrões que funcionam (vindos da aula de Bauhaus)
+Feitos só com os blocos acima. O método completo está em `.claude/skills/aula/SKILL.md`.
+```js
+// Uma ideia → suas consequências (diagrama de cima para baixo, ideia no topo)
+aula.diagrama({ titulo: "Uma ideia, quatro marcas visuais", mermaid: `graph TD ...`, texto: `...` });
+aula.destaque("O visual é **consequência de uma ideia**: ...");
+
+// Mito a descartar (2–3 frases, com fonte na seção de fontes)
+aula.texto(`*Um mito para descartar já:* a frase "..." **não é de X**. Foi escrita por Y em ANO.`);
+
+// Contraste: dois casos seguidos, "olhe primeiro, leia depois"
+aula.imagem({ titulo: "Antes: ...", src: "...", texto: `**O contraexemplo.** ...` });
+aula.imagem({ titulo: "Depois: ...", src: "...", texto: `**O exemplo.** ...` });
+
+// A lente que o aluno leva embora (3–4 perguntas numeradas)
+aula.destaque(`**As 4 perguntas para reconhecer X**
+1. ...
+2. ...`);
+```
+Depois, a **mesma lente** com a ajuda diminuindo: `aula.exemplo` (caso pequeno) →
+`aula.completar` (caso maior, passos-chave com `lacuna: true`) → `aula.problema`
+(caso sozinho, de preferência com uma reviravolta que teste a lente).
+
 ### Teste e fontes
 ```js
 aula.quiz({ pergunta: `...`,

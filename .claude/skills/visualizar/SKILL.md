@@ -53,6 +53,11 @@ Na dúvida, não faça: **um visual que falta custa menos que um visual errado.*
 - No máximo 2 cores de dado + neutro. Fonte dos dados na `legenda`.
 
 **Imagens**
+- Em aulas de arquitetura, design e arte, prefira **pares de contraste** (um
+  caso que falha na lente × um que passa), em dois `aula.imagem` seguidos,
+  com título "Antes: …" / "Depois: …". Convide o aluno a **olhar primeiro e
+  ler depois**. O `texto` diz **para onde olhar** e **o que a imagem não
+  mostra** (planta, escala, material, contexto), e descreve só o que se vê.
 - Prefira **Wikimedia Commons**. Confira na página do arquivo o **autor** e a
   **licença** e preencha `credito`, `licenca` e `link` (a página do arquivo).
 - Use o link direto da imagem (`upload.wikimedia.org/...`) em `src`.
