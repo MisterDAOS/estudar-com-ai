@@ -14,4 +14,4 @@
 
 ## Estado da aula
 - Parte 1: pronta, checagem acertada (12,68% e 6,12%).
-- Parte 2 (causas, conceitual): escrita. Parte 3 (Brasil em dados, gráfico IPCA 2015–2025): pendente.
+- Partes 2 e 3 escritas; checagem 2 acertada. Quizzes e fontes escritos. Aula concluída (falta só o aluno fazer o problema da parte 3).

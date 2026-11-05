@@ -94,3 +94,51 @@ aula.completar({
 aula.texto(`**Aviso de fonte:** a classificação em demanda, custos e expectativas é a de livro-texto. Não confirmei o capítulo nem a definição oficial do Banco Central, então não cito referência para ela. Entre economistas há **debate** sobre quanto pesa cada causa em cada episódio.`);
 
 aula.destaque(`Preços sobem quando dinheiro e demanda crescem mais que a oferta, quando os custos sobem ou quando todos esperam inflação.`);
+
+aula.secao("3. O Brasil em números");
+
+aula.texto(`Agora você vê o que acabou de aprender em dados reais. O gráfico mostra o **IPCA acumulado de dezembro a dezembro**, de 2015 a 2025. Pergunta-guia: **em quais anos a inflação passou de 10%?**`);
+
+aula.figura({
+  titulo: "IPCA acumulado no ano (dez/dez), 2015–2025",
+  svg: `<svg viewBox="0 0 640 300" role="img" aria-label="IPCA anual de 2015 a 2025"><line x1="44" x2="630" y1="250.0" y2="250.0" stroke="currentColor" stroke-opacity=".18"/><text x="38" y="254.0" text-anchor="end" font-size="11" fill="currentColor">0%</text><line x1="44" x2="630" y1="173.33333333333331" y2="173.33333333333331" stroke="currentColor" stroke-opacity=".18"/><text x="38" y="177.33333333333331" text-anchor="end" font-size="11" fill="currentColor">4%</text><line x1="44" x2="630" y1="96.66666666666666" y2="96.66666666666666" stroke="currentColor" stroke-opacity=".18"/><text x="38" y="100.66666666666666" text-anchor="end" font-size="11" fill="currentColor">8%</text><line x1="44" x2="630" y1="20.0" y2="20.0" stroke="currentColor" stroke-opacity=".18"/><text x="38" y="24.0" text-anchor="end" font-size="11" fill="currentColor">12%</text><rect x="52.6" y="45.5" width="36" height="204.5" fill="#c2410c"/><text x="70.6" y="40.5" text-anchor="middle" font-size="11" fill="currentColor">10,67</text><text x="70.6" y="266" text-anchor="middle" font-size="11" fill="currentColor">2015</text><rect x="105.9" y="129.4" width="36" height="120.6" fill="#2563eb"/><text x="123.9" y="124.4" text-anchor="middle" font-size="11" fill="currentColor">6,29</text><text x="123.9" y="266" text-anchor="middle" font-size="11" fill="currentColor">2016</text><rect x="159.2" y="193.5" width="36" height="56.5" fill="#2563eb"/><text x="177.2" y="188.5" text-anchor="middle" font-size="11" fill="currentColor">2,95</text><text x="177.2" y="266" text-anchor="middle" font-size="11" fill="currentColor">2017</text><rect x="212.5" y="178.1" width="36" height="71.9" fill="#2563eb"/><text x="230.5" y="173.1" text-anchor="middle" font-size="11" fill="currentColor">3,75</text><text x="230.5" y="266" text-anchor="middle" font-size="11" fill="currentColor">2018</text><rect x="265.7" y="167.4" width="36" height="82.6" fill="#2563eb"/><text x="283.7" y="162.4" text-anchor="middle" font-size="11" fill="currentColor">4,31</text><text x="283.7" y="266" text-anchor="middle" font-size="11" fill="currentColor">2019</text><rect x="319.0" y="163.4" width="36" height="86.6" fill="#2563eb"/><text x="337.0" y="158.4" text-anchor="middle" font-size="11" fill="currentColor">4,52</text><text x="337.0" y="266" text-anchor="middle" font-size="11" fill="currentColor">2020</text><rect x="372.3" y="57.2" width="36" height="192.8" fill="#c2410c"/><text x="390.3" y="52.2" text-anchor="middle" font-size="11" fill="currentColor">10,06</text><text x="390.3" y="266" text-anchor="middle" font-size="11" fill="currentColor">2021</text><rect x="425.5" y="139.2" width="36" height="110.8" fill="#2563eb"/><text x="443.5" y="134.2" text-anchor="middle" font-size="11" fill="currentColor">5,78</text><text x="443.5" y="266" text-anchor="middle" font-size="11" fill="currentColor">2022</text><rect x="478.8" y="161.4" width="36" height="88.6" fill="#2563eb"/><text x="496.8" y="156.4" text-anchor="middle" font-size="11" fill="currentColor">4,62</text><text x="496.8" y="266" text-anchor="middle" font-size="11" fill="currentColor">2023</text><rect x="532.1" y="157.4" width="36" height="92.6" fill="#2563eb"/><text x="550.1" y="152.4" text-anchor="middle" font-size="11" fill="currentColor">4,83</text><text x="550.1" y="266" text-anchor="middle" font-size="11" fill="currentColor">2024</text><rect x="585.4" y="168.3" width="36" height="81.7" fill="#2563eb"/><text x="603.4" y="163.3" text-anchor="middle" font-size="11" fill="currentColor">4,26</text><text x="603.4" y="266" text-anchor="middle" font-size="11" fill="currentColor">2025</text></svg>`,
+  legenda: "Fonte: elaboração própria a partir da série 433 (IPCA, variação mensal) do Banco Central do Brasil, SGS. Acesso em 5 nov. 2026. Acumulado = produto dos 12 fatores mensais.",
+  texto: `Dois anos passam de **10%**: 2015 (10,67%) e 2021 (10,06%). Entre eles, a inflação caiu para 2,95% em 2017 e voltou a subir.
+
+Em 2026, de janeiro a setembro, o IPCA acumulou **3,95%**. Esse número cobre só o ano até setembro, e não os últimos 12 meses.
+
+O gráfico mostra **quanto** os preços subiram, não **por quê** em cada ano. Não confirmei uma fonte oficial para as causas de 2015 ou 2021.`,
+});
+
+aula.problema({
+  titulo: "Acumulando dois anos",
+  enunciado: `Uma cesta custava R$ 100 em dezembro de 2020. Use o gráfico: quanto ela custava em dezembro de 2022? E por que não basta somar as duas inflações?`,
+  dica: `Transforme cada taxa em fator (1 + taxa) e multiplique, como no exemplo dos 1% ao mês.`,
+  resposta: `$100 \\times 1{,}1006 \\times 1{,}0578 \\approx$ **R$ 116,42**. A soma simples (10,06% + 5,78%) daria 15,84%, e o certo é cerca de 16,42%, porque os 5,78% de 2022 incidem sobre preços que já subiram em 2021.`,
+});
+
+aula.destaque(`Inflação é o aumento generalizado e contínuo dos preços. Ela acumula como juros compostos e nasce de moeda, demanda, custos e expectativas.`);
+
+aula.quiz({
+  pergunta: `Os preços sobem 3% ao ano por 2 anos seguidos. A inflação acumulada nos dois anos é:`,
+  opcoes: [ { texto: "6,00%" }, { texto: "6,09%", certa: true }, { texto: "3,00%" } ],
+  explicacao: `1,03 × 1,03 = 1,0609. O segundo ano incide sobre preços já reajustados.`,
+});
+
+aula.quiz({
+  pergunta: `O dólar sobe e encarece insumos importados, e as empresas repassam isso aos preços. Qual a pressão principal?`,
+  opcoes: [ { texto: "Custos", certa: true }, { texto: "Demanda" }, { texto: "Expectativas apenas" } ],
+  explicacao: `O custo de produzir subiu e foi repassado ao preço.`,
+});
+
+aula.quiz({
+  pergunta: `O preço do café sobe 20% e o do arroz cai 10%. Isso, sozinho, é inflação?`,
+  opcoes: [ { texto: "Não: é mudança de preços relativos; inflação é alta generalizada", certa: true }, { texto: "Sim: um produto subiu muito" }, { texto: "Sim: basta qualquer preço subir" } ],
+  explicacao: `Inflação exige alta generalizada e contínua do nível de preços.`,
+});
+
+aula.fontes([
+  "BANCO CENTRAL DO BRASIL. **Série 433 – IPCA, variação mensal (%)**. Sistema Gerenciador de Séries Temporais (SGS). Disponível em: [api.bcb.gov.br](https://api.bcb.gov.br/dados/serie/bcdata.sgs.433/dados?formato=json). Acesso em: 5 nov. 2026.",
+  "INSTITUTO BRASILEIRO DE GEOGRAFIA E ESTATÍSTICA (IBGE). **Índice Nacional de Preços ao Consumidor Amplo (IPCA)**. Disponível em: [ibge.gov.br](https://www.ibge.gov.br/estatisticas/economicas/precos-e-custos/9256-indice-nacional-de-precos-ao-consumidoramplo.html). Acesso em: 5 nov. 2026. (Consultei só o resumo da busca; a página retornou erro 403.)",
+  "As classificações de inflação de demanda, custos e expectativas são conceitos gerais de livro-texto; não confirmei capítulo nem fonte oficial para citá-las.",
+]);
