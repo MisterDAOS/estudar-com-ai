@@ -1,0 +1,10 @@
+# PDFs e materiais do curso (direitos autorais dos professores/editoras): ficam só no computador
+pdfs/*
+!pdfs/LEIA-ME.md
+
+# Configurações locais do Claude Code
+.claude/settings.local.json
+
+# Sistema
+.DS_Store
+Thumbs.db

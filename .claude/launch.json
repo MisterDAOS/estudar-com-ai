@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "estudo",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["ferramenta/servidor.mjs"],
+      "port": 4321
+    }
+  ]
+}
