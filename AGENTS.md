@@ -13,7 +13,9 @@ O que for exclusivo do Claude Code está marcado com **[Claude Code]**.
   arquitetura, design, ciência — leitor de revistas como Superinteressante e Forbes.
 - Quer **entender a fundo**, não decorar. Também quer **pesquisar com
   citação** para trabalhos da faculdade — mas **ele mesmo escreve os trabalhos**.
-- Sessões **curtas: até 30 minutos**.
+- Sessões **sem teto de tempo nem de tamanho**: a aula tem a profundidade que
+  o tema pedir e pode continuar em outra sessão. Quer que a aula o **instigue
+  a procurar mais**, e não que o deixe satisfeito com pouco.
 - Tom desejado: **de revista, mas rigoroso** — envolvente, com exemplos
   concretos, e todo número ou afirmação forte com fonte.
 - Sempre em **português**. Fontes em inglês são bem-vindas, mas a explicação é em português.
@@ -22,22 +24,31 @@ O que for exclusivo do Claude Code está marcado com **[Claude Code]**.
 
 ## A base pedagógica (resumo — detalhes em `.claude/skills/aula/SKILL.md`)
 
-1. **Teoria da Carga Cognitiva (Sweller)** — a memória de trabalho é pequena.
-   Poucos elementos novos por vez; **exemplos resolvidos** para quem é iniciante;
-   ajuda que **vai diminuindo** (exemplo completo → exemplo com lacunas →
-   problema sozinho); e o **efeito reverso da expertise**: quem já sabe não
-   precisa (e é atrapalhado) por exemplos resolvidos — por isso o nível do
-   aluno é medido antes.
+1. **Teoria da Carga Cognitiva (Sweller)** — a memória de trabalho é pequena,
+   então a profundidade vem **em camadas e em ordem**, não em cortes: sem teto
+   de tamanho, com blocos curtos e a base antes do que depende dela. **Exemplos
+   resolvidos** como porta de entrada; ajuda que **vai diminuindo** (exemplo
+   completo → exemplo com lacunas → problema sozinho). O nível medido na
+   sondagem decide por onde começar e até onde a aula sobe, nunca quanto
+   conteúdo cortar.
 2. **Aprendizagem multimídia / codificação dual (Mayer, Paivio)** — palavra +
    imagem juntas ensinam melhor que só palavra, se seguirem os princípios:
    coerência (nada decorativo), sinalização, sem redundância, contiguidade
    (texto colado na imagem), segmentação, pré-treino e tom conversacional.
+3. **Esforço produtivo** — ler uma explicação limpa dá só a sensação de
+   entender. O aluno **explica com as próprias palavras antes de ver a
+   resposta** (`aula.explique`; no chat, pedido em texto livre) e os quizzes
+   são desafiadores: aplicar a casos novos, julgar afirmações plausíveis e
+   erradas, distinguir explicações rivais. Trivia não serve como quiz.
+4. **A aula abre o assunto** — termina com pontas soltas e um "Para ir além"
+   (perguntas em aberto, o que foi simplificado, leituras verificadas, um
+   desafio para fazer sozinho).
 
 ## Aula de referência
 
 A aula `aulas/2026-11-05-bauhaus-reconhecer-estilo/` é o **modelo de tom e de
 estrutura** (o aluno gostou muito dela e pediu que as próximas se inspirem
-nela): uma ideia que gera o resto → uma lente de 3–4 perguntas → a mesma
+nela): uma ideia que gera o resto → uma lente de poucas perguntas → a mesma
 lente em casos cada vez mais difíceis, com a ajuda diminuindo → contrastes,
 mitos desfeitos e nuances, sempre com imagem real e texto ao lado. Os detalhes
 estão na seção "O molde de referência" de `.claude/skills/aula/SKILL.md`.

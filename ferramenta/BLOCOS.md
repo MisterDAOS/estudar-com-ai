@@ -59,6 +59,22 @@ aula.completar({ titulo: "...", problema: `...`,
 aula.problema({ titulo: "...", enunciado: `...`, dica: `...`, resposta: `...` });
 ```
 
+### Explique com suas palavras (esforço produtivo)
+O aluno **escreve a própria explicação** e só depois a explicação-modelo é
+liberada. O botão só habilita depois de `minimo` caracteres (padrão 40). O
+texto fica salvo no navegador. `criterios` vira uma lista de conferência para
+ele se comparar ("minha explicação continha isto?").
+```js
+aula.explique({
+  titulo: "...",                         // opcional
+  pergunta: `Explique por que X leva a Y, sem olhar o diagrama.`,
+  resposta: `A explicação-modelo, verificada.`,
+  criterios: ["Liga X a Y (não só lista)", "Explica por que Z fica de fora"],
+  minimo: 40,                            // opcional
+});
+```
+Use depois de cada ideia central, **antes** de qualquer resposta pronta.
+
 ### Visuais (aprendizagem multimídia)
 Passe `texto` para a explicação ficar **ao lado** da imagem (contiguidade).
 ```js
@@ -110,3 +126,19 @@ aula.quiz({ pergunta: `...`,
 aula.fontes([ "SOBRENOME, Nome. **Título**. Local: Editora, ano. [link](https://...)" ]);
 ```
 O botão **"Não sei"** é automático — não crie uma opção "não sei".
+
+**Quizzes desafiadores, não trivia.** Aplique a um caso novo, julgue uma
+afirmação plausível e errada, distinga explicações rivais, ache o erro. Use
+várias `certa: true` (marque todas) para obrigar a discriminar nuances. Regras
+completas em `.claude/skills/aula/SKILL.md` ("Quizzes que desafiam").
+
+### Para ir além (fecho da aula)
+Todos os campos são opcionais; `perguntas` e `leituras` aceitam lista (ou texto).
+```js
+aula.alem({
+  perguntas: [ `pergunta que a aula deixou em aberto`, `...` ],
+  simplificamos: `o que esta aula simplificou ou deixou de fora, e onde a lente falha`,
+  leituras: [ `[Autor, Título](https://...): por que vale ler` ],  // só fontes lidas de fato
+  desafio: `uma investigação para fazer sozinho no mundo real`,
+});
+```

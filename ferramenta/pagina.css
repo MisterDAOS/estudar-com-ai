@@ -200,6 +200,31 @@ button:disabled { cursor: default; opacity: .9; }
 .explicacao-quiz { margin-top: 8px; padding: 12px 16px; background: var(--info-fundo); border-radius: 8px; }
 .explicacao-quiz p:last-child { margin-bottom: 0; }
 
+/* explique com suas palavras */
+.explique textarea {
+  width: 100%; font-family: var(--serif); font-size: 1rem; line-height: 1.55;
+  padding: 12px 14px; border: 1px solid var(--linha); border-radius: 8px;
+  background: var(--fundo); color: var(--texto); resize: vertical; min-height: 120px;
+}
+.explique textarea:focus { outline: 2px solid var(--acento); outline-offset: 1px; }
+.explique textarea[readonly] { opacity: .85; }
+.explique .acoes { display: flex; gap: 8px; margin-top: 10px; }
+.explique button:disabled { opacity: .5; cursor: not-allowed; }
+.criterios { list-style: none; margin: 8px 0 0; padding: 0; font-family: var(--sans); font-size: .9rem; }
+.criterios li { margin: 6px 0; }
+.criterios label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; }
+.criterios input { margin-top: 5px; }
+
+/* para ir além */
+.alem { border-left: 4px solid var(--acento); }
+.alem h4 {
+  font-family: var(--sans); font-size: .8rem; font-weight: 700; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--suave); margin: 18px 0 6px;
+}
+.alem ul, .alem ol { margin: 0; padding-left: 1.3em; }
+.alem li { margin: 6px 0; }
+.alem p:last-child { margin-bottom: 0; }
+
 /* fontes */
 .fontes ol { margin: 0; padding-left: 1.3em; font-size: .9rem; }
 .fontes li { margin: 6px 0; }

@@ -17,9 +17,9 @@
   // ------------------------------------------------------------------ API
   const TIPOS = [
     "inicio", "plano", "secao", "termos", "texto", "destaque",
-    "exemplo", "completar", "problema",
+    "exemplo", "completar", "problema", "explique",
     "diagrama", "figura", "imagem",
-    "caso", "quiz", "fontes",
+    "caso", "quiz", "alem", "fontes",
   ];
   let coletando = [];
   const api = {};
@@ -194,6 +194,56 @@
       return c;
     },
 
+    // Autoexplicação: o aluno escreve com as próprias palavras ANTES de ver a
+    // explicação-modelo. O texto fica salvo no navegador (não se perde se a
+    // página se atualizar) e nada é enviado a lugar nenhum.
+    explique(d) {
+      const c = novo("div", "cartao explique coluna");
+      c.appendChild(novo("span", "rotulo", "Explique com suas palavras"));
+      if (d.titulo) c.appendChild(novo("h3", null, md(d.titulo, true)));
+      c.appendChild(novo("div", "enunciado", md(d.pergunta)));
+
+      const chave = "explique:" + location.pathname + ":" + hash(String(d.pergunta));
+      const campo = document.createElement("textarea");
+      campo.rows = 5;
+      campo.placeholder = d.placeholder || "Escreva aqui, do seu jeito, sem consultar a página acima. Errar faz parte: é comparando que você aprende.";
+      campo.setAttribute("aria-label", "Sua explicação");
+      try { campo.value = localStorage.getItem(chave) || ""; } catch (e) { /* sem armazenamento: segue */ }
+      c.appendChild(campo);
+
+      const minimo = d.minimo || 40;
+      const legenda = novo("div", "legenda", "A explicação-modelo é liberada depois que você escreve a sua.");
+      const acoes = novo("div", "acoes");
+      const b = novo("button", "primario", "Comparar com a explicação-modelo"); b.type = "button";
+      acoes.appendChild(b);
+      c.appendChild(acoes); c.appendChild(legenda);
+
+      const modelo = novo("div", "resposta"); modelo.hidden = true;
+      modelo.appendChild(novo("div", null, "<p><strong>Explicação-modelo</strong></p>" + md(d.resposta)));
+      if (Array.isArray(d.criterios) && d.criterios.length) {
+        const ul = novo("ul", "criterios");
+        d.criterios.forEach((t) => {
+          const li = novo("li");
+          const lb = novo("label");
+          const cx = document.createElement("input"); cx.type = "checkbox";
+          lb.appendChild(cx); lb.appendChild(novo("span", null, md(t, true)));
+          li.appendChild(lb); ul.appendChild(li);
+        });
+        modelo.appendChild(novo("p", "legenda", "Marque o que a <strong>sua</strong> explicação já continha. O que ficou sem marca é o que vale reler."));
+        modelo.appendChild(ul);
+      }
+      c.appendChild(modelo);
+
+      const atualizar = () => { b.disabled = campo.value.trim().length < minimo; };
+      atualizar();
+      campo.addEventListener("input", () => {
+        atualizar();
+        try { localStorage.setItem(chave, campo.value); } catch (e) { /* segue */ }
+      });
+      b.addEventListener("click", () => { campo.readOnly = true; modelo.hidden = false; acoes.remove(); legenda.remove(); });
+      return c;
+    },
+
     diagrama(d) {
       const alvo = novo("div", "mermaid-alvo", '<span class="legenda">desenhando…</span>');
       desenharMermaid(alvo, d.mermaid || "");
@@ -244,6 +294,26 @@
     },
 
     quiz(d) { return quizCartao(d); },
+
+    // "Para ir além": a aula abre o assunto em vez de fechá-lo.
+    alem(d) {
+      const c = novo("div", "cartao alem coluna");
+      c.appendChild(novo("span", "rotulo", "Para ir além"));
+      if (d.titulo) c.appendChild(novo("h3", null, md(d.titulo, true)));
+      const lista = (v) => (Array.isArray(v) ? v : (v ? [v] : []));
+      const secao = (nome, itens, ordenada) => {
+        if (!itens.length) return;
+        c.appendChild(novo("h4", null, nome));
+        const ul = novo(ordenada ? "ol" : "ul");
+        itens.forEach((t) => ul.appendChild(novo("li", null, md(t, true))));
+        c.appendChild(ul);
+      };
+      secao("Perguntas que a aula deixou em aberto", lista(d.perguntas));
+      if (d.simplificamos) { c.appendChild(novo("h4", null, "O que esta aula simplificou")); c.appendChild(novo("div", null, md(d.simplificamos))); }
+      secao("Onde cavar", lista(d.leituras));
+      if (d.desafio) { c.appendChild(novo("h4", null, "Seu desafio")); c.appendChild(novo("div", null, md(d.desafio))); }
+      return c;
+    },
 
     fontes(d) {
       const lista = Array.isArray(d) ? d : (d.fontes || []);

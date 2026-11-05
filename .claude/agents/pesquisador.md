@@ -37,12 +37,12 @@ Fontes em inglês são bem-vindas. Escreva o resultado em português.
 
 ## Orçamento — o aluno paga cada busca
 
-- **No máximo 8 buscas (WebSearch) e 5 páginas abertas (WebFetch) por tarefa.**
+- **No máximo 15 buscas (WebSearch) e 10 páginas abertas (WebFetch) por tarefa.**
 - **Uma fonte confiável por item basta.** Pare de procurar assim que tiver uma.
   Só busque uma segunda fonte se a primeira for fraca ou se houver contradição.
 - Se uma página bloquear (erro 403/404), passe para outra fonte. Não insista nem tente contornar.
 - Se o orçamento acabar, entregue o que tem e marque o resto como NÃO CONFIRMADO.
-- Resposta final **curta**: no máximo ~600 palavras.
+- Resposta final **curta**: no máximo ~1.100 palavras.
 
 ## Como pesquisar
 

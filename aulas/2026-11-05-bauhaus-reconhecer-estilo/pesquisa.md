@@ -2,7 +2,7 @@
 
 ## Estado da aula
 - Aluno: **iniciante** em ideias e linguagem visual (respondeu "não sei"); sabe o básico da história (acertou Weimar, 1919).
-- **Pronto:** partes 1, 2 e 3 em `aula.js`. Checagens 1 e 2 acertadas. A parte 3 (completar, prédio de Dessau) está na página; falta o aluno reagir.
+- **Pronto:** partes 1 a 5 e fechamento (destaque, 3 quizzes, fontes) em `aula.js`; lista.js atualizada. Falta só a checagem final no chat e o resumo.
 - **Falta:**
   - **Checagem 2** (no chat): qual objeto passa nas 3 perguntas. Opções: bule de prata com bico de cisne e flores gravadas; luminária de metal e vidro, cúpula em meia esfera, sem enfeites (**certa**); mesa entalhada com pés de leão; não sei.
   - **Parte 3** (`aula.completar`): analisar o prédio da Bauhaus em Dessau com as perguntas. Os passos de ornamento e de material ficam como **lacuna**.

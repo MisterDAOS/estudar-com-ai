@@ -1,6 +1,6 @@
 ---
 name: aula
-description: Conduz uma sessão de estudo de até 30 minutos sobre qualquer tema (economia, arquitetura, design, Direito, matérias e trabalhos da faculdade), com base na teoria da carga cognitiva (exemplos resolvidos, ajuda que diminui) e na aprendizagem multimídia (texto + diagrama/imagem juntos), escrevendo a aula numa página local interativa. Use quando o aluno digitar /aula, pedir para aprender, estudar ou entender um tema, ou pedir ajuda para entender matéria de um trabalho.
+description: Conduz uma sessão de estudo sobre qualquer tema (economia, arquitetura, design, Direito, matérias e trabalhos da faculdade), sem teto de tempo nem de tamanho — a profundidade é a que o tema pedir. Baseia-se na teoria da carga cognitiva (conteúdo em camadas, exemplos resolvidos, ajuda que diminui), na aprendizagem multimídia (texto + diagrama/imagem juntos) e no esforço produtivo (o aluno explica com as próprias palavras antes de ver a resposta), e escreve a aula numa página local interativa que instiga o aluno a buscar mais. Use quando o aluno digitar /aula, pedir para aprender, estudar ou entender um tema, ou pedir ajuda para entender matéria de um trabalho.
 argument-hint: <tema>
 ---
 
@@ -13,9 +13,13 @@ escreve. Leia `AGENTS.md` (perfil do aluno, regras e fontes) e
 
 ## Por que este método — internalize antes de aplicar
 
-**1. A memória de trabalho é pequena.** Ela segura poucas ideias novas ao
-mesmo tempo; trate **3 a 4 elementos novos por bloco** como teto. Quando o
-aluno "não entende", muitas vezes não é falta de capacidade: é sobrecarga.
+**1. A memória de trabalho é pequena — por isso a profundidade vem em
+camadas, não em cortes.** Ela segura poucas ideias novas ao mesmo tempo, mas
+isso limita a **ordem e o ritmo** da aula, não o tamanho dela. Quando o
+assunto é grande, não o encurte: divida em blocos curtos, ponha a base antes
+do que depende dela e deixe o aluno controlar o ritmo. **Não há teto de
+tempo, de palavras, de partes nem de ideias por aula.** Quando o aluno "não
+entende", muitas vezes não é falta de capacidade: é sobrecarga de apresentação.
 
 Há três tipos de carga, e cada um pede uma ação:
 
@@ -34,10 +38,12 @@ exemplo resolvido completo  →  exemplo com lacunas  →  problema sozinho
    (aula.exemplo)               (aula.completar)        (aula.problema)
 ```
 
-**3. Efeito reverso da expertise:** o que ajuda o iniciante **atrapalha** quem
-já sabe (o exemplo resolvido vira redundância que ele precisa ignorar). Por
-isso o nível é medido antes, e a ajuda é escolhida **por assunto**, não para
-a sessão inteira.
+**3. Aprender exige esforço produtivo.** Ler uma explicação limpa dá a
+sensação de ter entendido, mesmo sem ter. O que fixa é **reconstruir**:
+explicar com as próprias palavras (autoexplicação), responder antes de ver a
+resposta, aplicar a um caso novo. Por isso o aluno **escreve a própria
+explicação antes de a resposta ser revelada** (`aula.explique` na página;
+pedido direto no chat) e os quizzes exigem raciocínio, não memória.
 
 **4. Palavra + imagem ensinam mais que só palavra** (codificação dual: o
 cérebro processa as duas por canais diferentes) — **desde que** a imagem
@@ -54,6 +60,12 @@ de Mayer que valem aqui:
 | Pré-treino | termos-chave **antes** do conceito (`aula.termos`) |
 | Personalização | tom de conversa, 2ª pessoa — é por isso que o tom "de revista" funciona |
 
+**5. A aula abre o assunto, não o fecha.** O objetivo não é o aluno sair
+achando que sabe tudo, e sim sair com **vontade de procurar mais**. Toda aula
+deixa pontas soltas de propósito (perguntas em aberto, debates entre autores,
+exceções, o que foi simplificado) e termina apontando onde cavar. Veja
+"Instigar a busca de mais", abaixo.
+
 ## O molde de referência: a aula de Bauhaus
 
 O aluno gostou muito da primeira aula
@@ -65,8 +77,9 @@ inspirem nela. **Antes de escrever a primeira parte de uma aula nova, leia o
    *a* ideia de onde as características saem (arte + indústria → formas
    simples, sem ornamento, material à mostra) e a mostra num diagrama
    "uma ideia → suas consequências". Quem entende a ideia deduz o resto.
-   Ao planejar, formule essa ideia em **uma frase**; se não achar, o recorte
-   ainda está largo ou solto demais.
+   Ao planejar, formule essa ideia em **uma frase**; se não achar, o tema
+   ainda está solto. Um tema grande pode ter mais de uma ideia-mãe (uma por
+   parte). Trate a ideia como **lente com limite**: mostre onde ela falha.
 2. **Uma lente que o aluno leva embora.** A ideia vira 3–4 perguntas
    numeradas num `aula.destaque` ("As 4 perguntas para reconhecer a
    Bauhaus"), usadas **sempre do mesmo jeito** em todos os casos.
@@ -103,8 +116,9 @@ inspirem nela. **Antes de escrever a primeira parte de uma aula nova, leia o
 | Direito | o princípio ou a razão de ser da norma | o roteiro do `aula.caso` (fatos → questão → normas → entendimentos → conclusão) | caso resolvido → com lacunas → sozinho; contraste: dois casos parecidos com soluções diferentes |
 
 Não force o molde quando o tema não pede (um procedimento, por exemplo, pede
-passos, não "casos"). Os limites continuam valendo: 30 minutos, 3–4 elementos
-novos por bloco, e quem já domina o assunto pula o exemplo resolvido.
+passos, não "casos"). O molde dá o tom e a estrutura, **não o tamanho**: o
+tema pode pedir mais casos, mais contrastes e mais partes, e a aula pode
+continuar em outra sessão.
 
 ## Antes de começar
 
@@ -125,22 +139,31 @@ Se o aluno pedir para continuar uma aula ("continue a aula de X"):
 
 ## Economia de tokens (o aluno paga cada passo)
 
-- Uma pesquisa por aula, consolidada (Fase 3), e só para o que for arriscado.
+Profundidade não é desperdício: gaste onde o aprendizado está (pesquisa,
+fontes, casos difíceis), não em repetição.
+
+- Junte as perguntas ao `pesquisador` em lotes (Fase 3). Uma chamada cobre um
+  bloco de temas; **aulas aprofundadas pedem mais chamadas** (uma por parte
+  densa) e fontes lidas de verdade, não só resumos de busca.
 - Mensagens no chat curtas. A explicação fica **na página**, nunca repetida no chat.
 - Screenshots só para conferir visuais (skill `visualizar`), um por visual.
 - Não releia arquivos que você acabou de escrever.
 
-## A sessão — cerca de 30 minutos, em 5 fases
+## A sessão — sem teto de tempo, em 5 fases
 
-### Fase 1 — Combinar o objetivo (1–2 min)
+A aula tem o tamanho que o tema pedir. Se ficar longa, planeje em etapas e
+avise que ela pode continuar em outra sessão (`pesquisa.md` guarda o estado).
+
+### Fase 1 — Combinar o objetivo
 Se o pedido for vago ("quero entender economia"), pergunte o que exatamente,
-oferecendo 3–4 recortes concretos (ex.: "por que existe inflação",
-"como os juros do Banco Central afetam o preço das coisas"…).
-Em 30 minutos cabe **uma pergunta central** bem respondida — recorte até caber.
+oferecendo recortes concretos (ex.: "por que existe inflação", "como os juros
+do Banco Central afetam o preço das coisas"…) e **a profundidade**: panorama,
+aprofundado (com debate e fontes) ou uma trilha em várias sessões.
 Se o pedido já for concreto, pule esta fase.
 
-### Fase 2 — Sondar o nível (3–5 min, no máximo 4 perguntas)
-Objetivo: decidir **quanta ajuda** dar em cada assunto da aula.
+### Fase 2 — Sondar o nível (poucas perguntas, as que forem necessárias)
+Objetivo: descobrir **por onde começar e até onde ir** em cada assunto — onde
+estão as lacunas e onde o aluno já pode ser desafiado.
 - Pergunte no chat (**[Claude Code]** `AskUserQuestion`; em outro agente,
   opções numeradas em texto), **uma ou duas perguntas por vez**, adaptando a
   seguinte à resposta anterior: acertou → mais difícil; errou → investigue ao lado.
@@ -153,20 +176,26 @@ Objetivo: decidir **quanta ajuda** dar em cada assunto da aula.
 - Depois de cada resposta: diga se acertou, qual era a certa e **uma frase** do porquê.
 - Classifique cada assunto-base da aula:
 
-| Nível | Sinal | Ajuda |
+| Nível | Sinal | Como a aula começa e até onde sobe |
 |---|---|---|
-| iniciante | errou ou "não sei" no básico | `exemplo` completo → `completar` |
-| intermediário | acerta o básico, erra a aplicação | `completar` → `problema` |
-| avançado | acerta aplicação | `problema` direto, discussão socrática; **sem** exemplo resolvido |
+| iniciante | errou ou "não sei" no básico | constrói a base: `exemplo` completo → `completar` → `problema`, e só então os debates |
+| intermediário | acerta o básico, erra a aplicação | `completar` → `problema` e casos difíceis, com contraexemplos |
+| avançado | acerta aplicação | começa por `problema` e discussão socrática; vai logo às tensões, às exceções e às fontes primárias |
 
-### Fase 3 — Verificar, planejar e abrir a página (2–3 min)
-1. **Verifique os fatos — uma única pesquisa por aula.** Antes de chamar o
-   `pesquisador`, planeje a aula inteira (inclusive partes que o aluno pedir
-   depois, se já souber) e junte **todas** as perguntas numa chamada só.
-   Pergunte apenas o que é **arriscado**: números, datas, nomes, leis,
-   julgados, citações e afirmações polêmicas. Não pergunte o que é consagrado
-   e estável. Pode rodar em paralelo com os passos 2 e 3. Nunca ensine um
-   número ou uma norma "de memória".
+O nível decide o **ponto de partida e a altura a que a aula chega**; nunca
+quanto conteúdo cortar. Um aluno com sondagem fraca ainda chega aos debates,
+só que passando antes pela base.
+
+### Fase 3 — Verificar, planejar e abrir a página
+1. **Verifique os fatos, em lotes.** Antes de chamar o `pesquisador`,
+   planeje a aula (inclusive partes que o aluno pedir depois, se já souber)
+   e junte as perguntas por bloco de temas. Verifique o que é **arriscado**:
+   números, datas, nomes, leis, julgados, citações e afirmações polêmicas;
+   não pergunte o que é consagrado e estável. Para aprofundar, peça também
+   **fontes acadêmicas e primárias lidas de fato** e os pontos em que os
+   autores **discordam**: é daí que saem os debates e o "Para ir além". Pode
+   rodar em paralelo com os passos 2 e 3. Nunca ensine um número ou uma norma
+   "de memória".
    - **Salve o resultado em `aulas/<pasta>/pesquisa.md`** (as respostas, os
      avisos e as referências), mais uma seção "Estado da aula" com as partes
      prontas e o que falta. Atualize essa seção ao fim de cada parte. Assim a
@@ -174,10 +203,10 @@ Objetivo: decidir **quanta ajuda** dar em cada assunto da aula.
    - Se surgir uma dúvida nova no meio da aula, faça uma pesquisa pequena (1–2 perguntas).
 2. **Crie a aula** (passo a passo em `ferramenta/BLOCOS.md`): pasta, `index.html`,
    `aula.js` com `aula.inicio(...)` (inclua `nivel`) e `aula.plano([...])` com
-   **3 ou 4 partes** no máximo. Antes de montar o plano, aplique o molde:
+   as partes que o tema pedir (sem teto). Antes de montar o plano, aplique o molde:
    qual é a **ideia que gera o resto** (uma frase) e qual é a **lente** (3–4
    perguntas)? O plano nasce daí: ideia → lente num caso resolvido → a mesma
-   lente com a ajuda diminuindo → alcance.
+   lente com a ajuda diminuindo → alcance e perguntas em aberto.
 3. **Abra a página** para o aluno: **[Claude Code]** `preview_start` com
    `name: "estudo"`. Se não houver essa configuração, rode
    `node ferramenta/servidor.mjs` em segundo plano e abra
@@ -185,48 +214,109 @@ Objetivo: decidir **quanta ajuda** dar em cada assunto da aula.
    `index.html` da aula com duplo clique.
 4. No chat, diga o plano em 2 linhas e pergunte se pode começar (um "ok" basta).
 
-### Fase 4 — Ensinar, parte por parte (15–20 min)
+### Fase 4 — Ensinar, parte por parte (o tempo que o tema pedir)
 Para **cada parte** do plano, acrescente ao fim do `aula.js`:
 
 1. `aula.secao("N. Título")`
 2. **Pré-treino** (`aula.termos`) — só se surgirem termos novos.
 3. **Gancho** (`aula.texto`, 2–3 frases): uma situação concreta, de
    preferência brasileira e atual, que torna a pergunta interessante.
-4. **Explicação** (`aula.texto`, até ~150 palavras, no máximo 3–4 ideias novas).
-   Se precisar de mais, é sinal de que a parte deve ser dividida.
+4. **Explicação** (`aula.texto`), em camadas: primeiro o conceito, depois a
+   nuance, a exceção e o debate. O tamanho é o que o assunto pedir; se uma
+   ideia depende de outra, apresente em ordem e em blocos curtos, para o
+   aluno controlar o ritmo.
 5. **Visual**, quando a ideia for estrutura, processo, causa e efeito,
    comparação, linha do tempo, espaço ou dados → siga a skill `visualizar`.
    Sem visual quando o texto já basta.
-6. **Exemplo no nível certo** (tabela da Fase 2). Em cada passo do exemplo,
-   o campo `porque` explica a razão — isso transforma o exemplo em compreensão,
-   não em receita.
-7. **Checagem no chat**: avise em **uma linha** que a parte está na página
-   ("Escrevi a parte 2: o diagrama e o exemplo. Me diga quando terminar de ler.")
-   e, quando ele voltar, faça **1 pergunta** de checagem que **aplique a lente
-   a um caso novo** (não peça definição decorada).
+6. **Exemplo** (tabela da Fase 2). Em cada passo do exemplo, o campo `porque`
+   explica a razão — isso transforma o exemplo em compreensão, não em receita.
+7. **Explique com suas palavras, antes da resposta.** Para cada ideia central
+   da parte:
+   - **Na página:** `aula.explique`. O aluno escreve a própria explicação num
+     campo de texto e só então vê a explicação-modelo e os critérios para se
+     comparar (não gasta IA).
+   - **No chat:** avise em **uma linha** que a parte está na página
+     ("Escrevi a parte 2: o diagrama e o exemplo. Me diga quando terminar de
+     ler."). Quando ele voltar, peça em texto livre (não em botões):
+     "Explique com suas palavras [a ideia / o mecanismo / por que X]" e
+     **espere**. Só então responda: o que ele acertou, o que faltou ou está
+     impreciso (comparando com o que foi verificado). Se faltar algo, dê uma
+     **dica** e peça que refaça; não entregue a resposta pronta de primeira.
+   - **Depois:** `AskUserQuestion` com **1 pergunta de aplicação desafiadora**
+     (caso novo, com armadilha ou exceção), nunca definição decorada. Siga
+     "Quizzes que desafiam", abaixo.
    - Acertou → a próxima parte pode reduzir a ajuda (exemplo → lacunas → problema).
    - Errou → **não avance**. Explique de outro jeito (outro exemplo, outro
      visual, peça menor) e cheque de novo.
+8. **Ponta solta.** Termine a parte deixando uma pergunta, um debate ou uma
+   exceção que dê vontade de procurar mais (ela pode ir depois para o
+   "Para ir além").
 
 **Checklist antes de escrever cada bloco** (é rápido, faça sempre):
-- Mais de 4 ideias novas? → divida.
+- Uma ideia depende de outra que ainda não apareceu? → ponha a base antes.
 - Algum elemento só decorativo? → corte.
 - O texto repete o que o visual mostra? → corte o texto, deixe só o comentário.
 - A explicação está longe do visual? → junte com o campo `texto`.
-- Exemplo resolvido para quem já domina? → troque por `problema`.
+- O aluno vai ver a resposta sem ter tentado explicar? → ponha um `aula.explique` antes.
 - Dá para mostrar um **contraste** (caso que falha na lente × caso que passa)? → mostre.
 - A imagem vem com "para onde olhar" e "o que ela não mostra"? → acrescente.
 - Há um mito comum ou uma nuance que um resumo apagaria? → desfaça em 2–3 frases, com fonte.
+- A parte deixa uma ponta solta que instigue a procurar mais? → acrescente.
 
-### Fase 5 — Fechar (2–3 min)
+### Fase 5 — Fechar
 1. `aula.destaque(...)` — a ideia central em 1–2 frases (e a lente, se ela ainda não estiver em destaque).
-2. 2–3 `aula.quiz(...)` de revisão (diferentes dos do chat), para o aluno
-   refazer depois sozinho, sem gastar IA.
-3. `aula.fontes([...])` — referências **ABNT**, só as realmente usadas e verificadas.
-4. Registre a aula em `aulas/lista.js`.
-5. No chat: resumo em 3 linhas e uma sugestão de próximo tema.
+2. **Quizzes que desafiam** — no mínimo 3, sem teto, diferentes dos do chat,
+   para o aluno refazer depois sozinho, sem gastar IA. Siga a seção abaixo.
+3. `aula.alem({...})` — **Para ir além** (veja "Instigar a busca de mais").
+4. `aula.fontes([...])` — referências **ABNT**, só as realmente usadas e verificadas.
+5. Registre a aula em `aulas/lista.js`.
+6. No chat: resumo em 3 linhas, a pergunta em aberto mais instigante da aula
+   e uma sugestão de próximo tema.
 
-Se o tempo acabar antes, feche mesmo assim (passos 1–4) e diga o que ficou para a próxima.
+Se a sessão precisar parar antes, feche assim mesmo (destaque, quizzes, "Para
+ir além", fontes), atualize "Estado da aula" no `pesquisa.md` e diga o que
+ficou para a próxima.
+
+## Quizzes que desafiam
+
+Quiz de revisão não é para conferir se o aluno decorou: é para ele **usar** o
+que aprendeu. Trivia (quem escreveu, em que ano, qual o número) **não** serve
+como quiz; um dado só entra se o aluno precisar dele para raciocinar.
+
+Cada quiz exige pelo menos uma destas operações:
+- **Aplicar a lente a um caso novo**, de preferência com uma armadilha (parece
+  passar na lente, mas falha; ou o contrário).
+- **Julgar uma afirmação plausível e errada**: "um colega diz X; quais
+  correções são válidas?". Com mais de uma `certa`, vira múltipla escolha
+  (marque todas), o que obriga a discriminar nuances.
+- **Distinguir duas explicações rivais** e decidir qual o caso sustenta.
+- **Achar o erro** num raciocínio que parece correto.
+- **Integrar duas partes** da aula numa só pergunta.
+
+Regras das alternativas:
+- Todas plausíveis, do mesmo tamanho e formato; a certa **não** é a mais
+  longa nem a mais específica.
+- Cada errada é um **mal-entendido real e comum**, não um absurdo.
+- A `explicacao` diz por que a certa vale **e por que cada errada tenta e falha**.
+- Pelo menos um quiz por aula traz um caso inédito com reviravolta e pelo
+  menos um integra partes diferentes.
+- As perguntas de checagem no chat seguem as mesmas regras.
+
+## Instigar a busca de mais
+
+A aula termina abrindo portas. Feche sempre com `aula.alem`, que reúne:
+- **`perguntas`** — perguntas que a aula deixou em aberto de propósito
+  (tensões, exceções, debates entre autores). Sem resposta pronta.
+- **`simplificamos`** — o que esta aula simplificou ou deixou de fora, e onde
+  a lente falha. Dizer isso é parte do rigor.
+- **`leituras`** — onde cavar, com o **porquê de cada leitura**. Só entram
+  fontes que foram de fato lidas ou encontradas nesta sessão; sem fonte
+  confirmada, não entra.
+- **`desafio`** — uma investigação que o aluno faz sozinho no mundo real
+  (achar um caso, testar a lente, comparar duas fontes).
+
+Ao longo da aula, prefira fechar partes com uma pergunta aberta em vez de uma
+conclusão fechada, e diga "isto é debatido" sempre que for debate.
 
 ## Modo Direito
 
