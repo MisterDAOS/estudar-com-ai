@@ -39,3 +39,58 @@ aula.exemplo({
 });
 
 aula.destaque(`Inflação é o aumento **generalizado e contínuo** dos preços, e acumula como juros compostos.`);
+
+aula.secao("2. O que faz os preços subirem");
+
+aula.termos([
+  { termo: "Demanda", definicao: "o quanto as pessoas e empresas querem e podem comprar." },
+  { termo: "Oferta", definicao: "o quanto a economia consegue produzir e entregar." },
+  { termo: "Expectativa de inflação", definicao: "a inflação que as pessoas esperam para os próximos meses." },
+]);
+
+aula.texto(`Você acertou que dobrar o dinheiro sem produzir mais empurra os preços para cima. Esse é o caso extremo de uma ideia mais geral: **preços sobem quando há mais dinheiro disputando menos bens**. Isso pode acontecer por quatro caminhos.`);
+
+aula.diagrama({
+  titulo: "Quatro caminhos para os preços subirem",
+  mermaid: `graph TD
+    A["Mais dinheiro<br/>em circulação"] --> P["Preços em geral sobem"]
+    B["Demanda maior que<br/>a oferta"] --> P
+    C["Custos de produção<br/>sobem"] --> P
+    D["Expectativa de<br/>inflação alta"] --> P`,
+  legenda: "Esquema conceitual de livro-texto; os caminhos costumam agir juntos.",
+  texto: `**Moeda:** mais dinheiro para a mesma produção.
+
+**Demanda:** a economia aquece e as empresas não conseguem produzir tudo que é pedido. Elas sobem o preço.
+
+**Custos (choque de oferta):** petróleo, câmbio ou salários sobem; a empresa repassa para o preço.
+
+**Expectativas:** se todos esperam inflação, reajustam preços e salários antes, e a previsão se realiza.`,
+});
+
+aula.exemplo({
+  titulo: "Por que o diesel mais caro encarece o supermercado?",
+  problema: `O preço do diesel sobe com o petróleo. Meses depois, o preço de hortaliças e de arroz sobe nas gôndolas. Que tipo de pressão é essa e por quê?`,
+  passos: [
+    { faz: `Identifique o que mudou primeiro: o **custo** do transporte, não a vontade de comprar.`, porque: "Se a demanda não mudou, o caminho não é de demanda." },
+    { faz: `Siga a cadeia: caminhão mais caro → frete mais caro → custo do produtor e do varejo maior.`, porque: "Quase tudo que você compra foi transportado." },
+    { faz: `Veja o repasse: a empresa sobe o preço para manter a margem.`, porque: "É assim que um custo vira preço." },
+    { faz: `Classifique: **inflação de custos** (choque de oferta).`, porque: "A produção ficou mais cara; o consumidor não pediu mais." },
+  ],
+  resposta: `Inflação de **custos**: o custo de produzir e transportar subiu e foi repassado ao preço.`,
+});
+
+aula.completar({
+  titulo: "Dinheiro farto, prateleira vazia",
+  problema: `Numa cidade, o crédito fica fácil e todos compram mais, mas as lojas não conseguem repor o estoque na mesma velocidade. O que acontece com os preços e que tipo de inflação é essa?`,
+  passos: [
+    { faz: `Identifique o que mudou primeiro: a **demanda** sobe.`, porque: "O crédito deu mais poder de compra." },
+    { faz: `Compare com a oferta: ela não acompanha.`, porque: "A produção tem limite no curto prazo." },
+    { faz: `O que as lojas fazem com o preço?`, porque: "Com muita gente querendo pouco produto, elas conseguem vender mais caro.", lacuna: true },
+    { faz: `Qual é o nome dessa inflação?`, porque: "O problema é excesso de procura sobre a oferta, e não custo.", lacuna: true },
+  ],
+  resposta: `Os preços sobem. É inflação de **demanda**.`,
+});
+
+aula.texto(`**Aviso de fonte:** a classificação em demanda, custos e expectativas é a de livro-texto. Não confirmei o capítulo nem a definição oficial do Banco Central, então não cito referência para ela. Entre economistas há **debate** sobre quanto pesa cada causa em cada episódio.`);
+
+aula.destaque(`Preços sobem quando dinheiro e demanda crescem mais que a oferta, quando os custos sobem ou quando todos esperam inflação.`);

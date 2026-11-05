@@ -13,5 +13,5 @@
 - Pesos dos grupos do IPCA; pico mensal de 1993-94; IGP-DI 1993/94; início da URV; definições oficiais do BCB de inflação de demanda/custos/inercial; efeito do diesel em 2021–22; frase de Friedman na fonte original; capítulos de Mankiw/Blanchard; consenso × debate entre escolas.
 
 ## Estado da aula
-- Parte 1 (o que é e como se mede): em escrita.
-- Partes 2 (causas — conceitos gerais, sem números) e 3 (Brasil em dados, gráfico IPCA 2015–2025): pendentes.
+- Parte 1: pronta, checagem acertada (12,68% e 6,12%).
+- Parte 2 (causas, conceitual): escrita. Parte 3 (Brasil em dados, gráfico IPCA 2015–2025): pendente.
