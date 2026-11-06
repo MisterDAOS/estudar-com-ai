@@ -14,6 +14,10 @@ Regras de escrita:
 - Se um texto tiver crase literal ou `${`, escape com `\`.
 - Um erro de sintaxe não apaga a aula: a página mantém a última versão boa e
   mostra um aviso vermelho embaixo. Corrija e ela se atualiza sozinha.
+- **Estilo do texto** (registro acadêmico, parágrafos desenvolvidos, notas de
+  fonte, cronologia): veja `.claude/skills/aula/SKILL.md`, seções "Escrita:
+  registro acadêmico", "Desenvolvimento e acessibilidade do texto" e
+  "Cronologia clara". A aula de referência é `aulas/2026-11-05-bauhaus-por-dentro/`.
 
 ## Criar uma aula nova
 
@@ -35,11 +39,46 @@ aula.plano(["Juros simples × compostos", "A fórmula", "Quanto isso pesa no tem
 aula.secao("1. Juros simples × compostos");   // vira título e entra no sumário
 ```
 
+### Cronologia (faixa de período)
+Para qualquer tema com **sequência no tempo** (história, Direito, economia, movimentos
+artísticos). Abra **cada parte** com um `aula.periodo`: ele mostra onde a parte
+se situa na linha do tempo da aula (faixa colorida sobre a escala inteira).
+```js
+aula.periodo({
+  de: 1919, ate: 1923,                 // anos da parte
+  escala: [1919, 1933],                // linha do tempo inteira da aula (opcional)
+  titulo: "Weimar",                    // opcional
+  detalhe: "Direção: Walter Gropius",  // opcional
+  marcos: ["1919 · Programa", "1923 · Lema"],   // opcional
+});
+```
+
+### Linha do tempo (cronologia geral)
+Abra a aula com **uma linha do tempo** de todos os períodos e marcos (vertical,
+datada, responsiva). Use `secoes` para agrupar por lugar, fase, governo etc.;
+sem agrupamento, passe só `eventos`. **Prefira este bloco ao `timeline` do
+Mermaid**, que encolhe o texto quando há muitos marcos.
+```js
+aula.cronologia({
+  titulo: "Cronologia geral (1919–1933)",
+  secoes: [
+    { nome: "Weimar · 1919–1925", eventos: [
+      { quando: "1919", texto: "Programa de Gropius" },
+      { quando: "1923", texto: "Lema; saída de Itten" } ] },
+    { nome: "Dessau · 1925–1932", eventos: [ { quando: "1926", texto: "Inauguração do prédio" } ] },
+  ],
+  // ou, sem seções: eventos: [ { quando: "1932", texto: "..." } ],
+  legenda: "opcional",
+});
+```
+
 ### Texto
 ```js
 aula.termos([ { termo: "Capital ($C$)", definicao: "o valor inicial." } ]); // pré-treino
 aula.texto(`Parágrafos em **Markdown**, com $M = C(1+i)^n$.`);
 aula.destaque(`A ideia central em uma ou duas frases.`);                  // sinalização
+// Nota de fonte: ressalvas FORA do fluxo, logo após o parágrafo a que se referem
+aula.nota(`**Nota sobre as fontes.** Dado X não foi confirmado; Y foi consultado apenas em resumo; Z e W divergem quanto a...`);
 ```
 
 ### Exemplos e prática (carga cognitiva — a ajuda vai diminuindo)

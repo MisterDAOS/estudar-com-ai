@@ -58,7 +58,7 @@ de Mayer que valem aqui:
 | Contiguidade | explicação **ao lado** do visual (campo `texto`), nunca em outro lugar da página |
 | Segmentação | blocos curtos; o aluno controla o ritmo (você espera ele dizer que leu) |
 | Pré-treino | termos-chave **antes** do conceito (`aula.termos`) |
-| Personalização | tom de conversa, 2ª pessoa — é por isso que o tom "de revista" funciona |
+| Personalização | instruções de exercício diretas ao aluno (imperativo); o corpo do texto segue o registro acadêmico (seção "Escrita") |
 
 **5. A aula abre o assunto, não o fecha.** O objetivo não é o aluno sair
 achando que sabe tudo, e sim sair com **vontade de procurar mais**. Toda aula
@@ -71,7 +71,11 @@ exceções, o que foi simplificado) e termina apontando onde cavar. Veja
 O aluno gostou muito da primeira aula
 (`aulas/2026-11-05-bauhaus-reconhecer-estilo/`) e pediu que as próximas se
 inspirem nela. **Antes de escrever a primeira parte de uma aula nova, leia o
-`aula.js` dela** para pegar o tom e o ritmo. O que a fez funcionar:
+`aula.js` dela** para pegar a estrutura e o ritmo. (A linguagem daquela aula
+ainda é a de revista. **Para registro acadêmico, cronologia e
+desenvolvimento do texto, a referência é
+`aulas/2026-11-05-bauhaus-por-dentro/`: leia também o `aula.js` dela.**) O
+que fez funcionar a estrutura:
 
 1. **Uma ideia que gera o resto.** Em vez de uma lista para decorar, ela acha
    *a* ideia de onde as características saem (arte + indústria → formas
@@ -116,7 +120,7 @@ inspirem nela. **Antes de escrever a primeira parte de uma aula nova, leia o
 | Direito | o princípio ou a razão de ser da norma | o roteiro do `aula.caso` (fatos → questão → normas → entendimentos → conclusão) | caso resolvido → com lacunas → sozinho; contraste: dois casos parecidos com soluções diferentes |
 
 Não force o molde quando o tema não pede (um procedimento, por exemplo, pede
-passos, não "casos"). O molde dá o tom e a estrutura, **não o tamanho**: o
+passos, não "casos"). O molde dá a estrutura, **não o tamanho nem o registro**: o
 tema pode pedir mais casos, mais contrastes e mais partes, e a aula pode
 continuar em outra sessão.
 
@@ -206,7 +210,9 @@ só que passando antes pela base.
    as partes que o tema pedir (sem teto). Antes de montar o plano, aplique o molde:
    qual é a **ideia que gera o resto** (uma frase) e qual é a **lente** (3–4
    perguntas)? O plano nasce daí: ideia → lente num caso resolvido → a mesma
-   lente com a ajuda diminuindo → alcance e perguntas em aberto.
+   lente com a ajuda diminuindo → alcance e perguntas em aberto. Em temas com
+   sequência no tempo, o plano é **por períodos**, em ordem cronológica, e
+   abre com uma cronologia geral (veja "Cronologia clara").
 3. **Abra a página** para o aluno: **[Claude Code]** `preview_start` com
    `name: "estudo"`. Se não houver essa configuração, rode
    `node ferramenta/servidor.mjs` em segundo plano e abra
@@ -217,14 +223,19 @@ só que passando antes pela base.
 ### Fase 4 — Ensinar, parte por parte (o tempo que o tema pedir)
 Para **cada parte** do plano, acrescente ao fim do `aula.js`:
 
-1. `aula.secao("N. Título")`
+1. `aula.secao("N. AAAA–AAAA · Título")` — em temas com sequência no tempo, o
+   título leva o **período** — e, logo abaixo, `aula.periodo({...})`
+   (veja "Cronologia clara").
 2. **Pré-treino** (`aula.termos`) — só se surgirem termos novos.
-3. **Gancho** (`aula.texto`, 2–3 frases): uma situação concreta, de
-   preferência brasileira e atual, que torna a pergunta interessante.
+3. **Problematização** (`aula.texto`, 2–3 frases): a questão que a parte
+   investiga, situada no tempo e, quando couber, ligada a um caso concreto
+   (de preferência brasileiro). Formule o problema; não use gancho de revista.
 4. **Explicação** (`aula.texto`), em camadas: primeiro o conceito, depois a
-   nuance, a exceção e o debate. O tamanho é o que o assunto pedir; se uma
-   ideia depende de outra, apresente em ordem e em blocos curtos, para o
-   aluno controlar o ritmo.
+   nuance, a exceção e o debate. **Parágrafos desenvolvidos e conectados**
+   (veja "Desenvolvimento e acessibilidade"), com as ressalvas de fonte em
+   `aula.nota`. O tamanho é o que o assunto pedir; se uma ideia depende de
+   outra, apresente em ordem, e termine a parte com um `aula.destaque`
+   "Em síntese".
 5. **Visual**, quando a ideia for estrutura, processo, causa e efeito,
    comparação, linha do tempo, espaço ou dados → siga a skill `visualizar`.
    Sem visual quando o texto já basta.
@@ -262,6 +273,12 @@ Para **cada parte** do plano, acrescente ao fim do `aula.js`:
 - A imagem vem com "para onde olhar" e "o que ela não mostra"? → acrescente.
 - Há um mito comum ou uma nuance que um resumo apagaria? → desfaça em 2–3 frases, com fonte.
 - A parte deixa uma ponta solta que instigue a procurar mais? → acrescente.
+- O parágrafo explica o **porquê** e se liga ao anterior por um conectivo? → desenvolva; não deixe frases soltas e telegráficas.
+- Há ressalva de fonte ("não confirmado", "só em resumo") no meio de uma frase? → mova para `aula.nota`.
+- Registro acadêmico? (voz impessoal, citação autor-data, sem "você" no corpo do texto, fato × interpretação × hipótese rotulados)
+- Tema histórico: a parte abre com `aula.periodo`, o título leva o período e os fatos estão em **ordem de data**?
+- A parte termina com `aula.destaque` "**Em síntese.**"?
+- Desenvolvi sem **inventar** fato para encher? → só explico e relaciono o que foi verificado.
 
 ### Fase 5 — Fechar
 1. `aula.destaque(...)` — a ideia central em 1–2 frases (e a lente, se ela ainda não estiver em destaque).
@@ -318,6 +335,67 @@ A aula termina abrindo portas. Feche sempre com `aula.alem`, que reúne:
 Ao longo da aula, prefira fechar partes com uma pergunta aberta em vez de uma
 conclusão fechada, e diga "isto é debatido" sempre que for debate.
 
+## Desenvolvimento e acessibilidade do texto
+
+O objetivo do aluno é **entender**, e não receber um resumo. Texto condensado
+demais fica **desconexo**: cada frase é verdadeira, mas o leitor não vê como
+uma leva à outra. Por isso o registro acadêmico **não** significa texto
+curto e seco. Significa texto **desenvolvido, conectado e claro**:
+
+- **Sem teto, e com piso de desenvolvimento.** Cada conceito central recebe
+  um **parágrafo desenvolvido** (em geral de 120 a 250 palavras), e não uma
+  frase solta. Prefira poucos parágrafos completos a muitos fragmentos.
+- **Explique o porquê e o "e daí".** Todo fato é seguido do que significa e
+  de por que importa para a pergunta da parte. Padrão do parágrafo:
+  **afirmação → explicação → exemplo ou analogia → consequência.**
+- **Conectivos explícitos** (porque, portanto, em contraste, nesse sentido,
+  o que significa que): a ligação entre as ideias é dita, e não deixada ao
+  leitor.
+- **Frase-tópico no início** de cada parágrafo, dizendo do que ele trata.
+  Um parágrafo, uma ideia, mas bem desenvolvida.
+- **Termo técnico explicado onde aparece** ("protótipo, isto é, o modelo a
+  partir do qual…"), mesmo que já conste em `aula.termos`. Sempre que possível,
+  um exemplo concreto ou uma analogia simples.
+- **Ressalvas fora do fluxo.** Avisos de fonte ("não foi confirmado",
+  "consultado apenas em resumo", divergências) vão em **`aula.nota`**, logo
+  após o parágrafo a que se referem, e não no meio das frases. O texto
+  principal corre contínuo; a nota preserva o rigor.
+- **Citações enxutas:** uma citação autor-data por ideia, no fim da frase;
+  não empilhe várias entre parênteses no meio da frase.
+- **Síntese de fim de parte:** uma ou duas frases em `aula.destaque`
+  ("**Em síntese.** …") com a ideia que deve ficar. É a única exceção à regra
+  de não resumir.
+- **Desenvolver não é inventar.** Desenvolver é explicar, relacionar e
+  exemplificar o que foi **verificado**; nunca acrescentar fato sem fonte para
+  "encher". Interpretação própria da aula é rotulada como tal.
+
+## Cronologia clara
+
+Em qualquer tema com sequência no tempo (história, movimentos, Direito,
+economia, evolução de uma norma ou de um conceito), o aluno precisa saber
+**onde está** em todos os momentos:
+
+1. **Periodização explícita antes de tudo.** Abra a aula com uma seção de
+   cronologia geral: uma linha do tempo (`aula.cronologia`, vertical e datada;
+   não use `timeline` do Mermaid, que encolhe o texto) que mostre **todos**
+   os períodos e marcos da aula, e diga o critério da
+   periodização (por diretor, por lugar, por lei, por crise…).
+2. **Uma parte = um período**, em **ordem cronológica estrita**. Os períodos
+   não se sobrepõem. Um fato pertence à parte do seu **ano**, mesmo que seja
+   o assunto de outra discussão; se precisar usar um fato de outro período,
+   diga com todas as letras ("retomando o caso de 1924…").
+3. **Título com período** (`aula.secao("2. 1923–1925 · Título")`) e,
+   abaixo, **`aula.periodo`** com `de`, `ate` e `escala` (a linha do tempo
+   inteira). Ele mostra a posição da parte no todo.
+4. **Dentro da parte, também em ordem de data.** Cada fato leva o ano (ou
+   dia, se confirmado). Sem "mais tarde" ou "antes" sem a data.
+5. **Análises e balanços** (comparações, debates) vão no **fim do período**
+   em que os fatos já foram apresentados, e dizem a que período se referem.
+6. **Tudo o que veio depois** (recepção, historiografia, consequências) tem
+   a sua própria parte, também em ordem cronológica, com linha do tempo.
+7. Datas com **precisão só até onde foi confirmado** (ano, mês ou dia). Se a
+   fonte dá apenas o ano, não invente o mês; diga "em 1928".
+
 ## Modo Direito
 
 - Estrutura de raciocínio com `aula.caso`: **fatos → questão jurídica →
@@ -348,11 +426,32 @@ conclusão fechada, e diga "isto é debatido" sempre que for debate.
   material, contexto histórico — e use **comparação lado a lado** de duas obras
   quando for o melhor jeito de mostrar uma ideia.
 
-## Escrita: "de revista, mas rigoroso"
+## Escrita: registro acadêmico
 
-- Frases curtas, voz ativa, 2ª pessoa ("você"). Comece pelo concreto.
-- Perguntas como gancho ("Por que o pão fica mais caro quando o dólar sobe?").
-- Nada de enrolação: sem "como vimos", sem resumir o que acabou de dizer.
+- **Voz impessoal ou terceira pessoa** ("observa-se", "a historiografia
+  aponta", "segundo Herboth (2009)"). Nada de "você" no corpo do texto; as
+  **instruções de exercício** ao aluno ficam no imperativo ("Aplique…",
+  "Explique…").
+- **Vocabulário conceitual preciso** (periodização, historiografia, recorte,
+  fonte primária e secundária, hipótese, tese), com os termos novos definidos
+  antes em `aula.termos`. Sem coloquialismos, exclamações, ganchos retóricos
+  nem metáforas de revista.
+- **Citação autor-data no corpo do texto** (ABNT NBR 10520): (SOBRENOME, ano);
+  fonte institucional sem data: (INSTITUIÇÃO, s.d.), com letras (s.d.a, s.d.b)
+  quando houver mais de uma da mesma instituição. A lista completa vai em
+  `aula.fontes`, em ordem alfabética. Trecho citado: curto, entre aspas, com
+  autor e ano.
+- **Distinga sempre** o que é **fato** documentado, o que é **interpretação**
+  de um autor (diga qual) e o que é **hipótese** da aula. Divergência entre
+  autores se apresenta como divergência, com os nomes.
+- **Natureza da fonte:** diga quando for fonte primária (texto da época) ou
+  secundária, e quando o conteúdo foi consultado **apenas em resumo**. O que
+  não foi confirmado é dito em voz impessoal ("não foi possível confirmar
+  em fonte consultada"), nunca omitido nem afirmado.
+- Frases mais longas são admitidas, desde que cada uma carregue **uma** ideia
+  e o parágrafo siga uma ordem lógica (afirmação → evidência → ressalva).
+- Nada de enrolação (repetição, "como vimos"). A única síntese admitida é a
+  do fim de cada parte (veja "Desenvolvimento e acessibilidade").
 - Todo número com fonte e data. Toda afirmação forte com fonte.
 - Fórmulas em LaTeX. No `aula.js`, **dobre as barras**: `\\frac`, `\\times`.
 - Se uma verificação corrigir algo que você ia dizer, diga isso ao aluno.

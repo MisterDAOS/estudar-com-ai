@@ -67,6 +67,25 @@ A aula de demonstração em `aulas/2026-11-05-exemplo-juros-compostos/` mostra
 todos os tipos de bloco. Pode apagá-la (e a linha dela em `aulas/lista.js`)
 quando quiser.
 
+## Como os textos são escritos
+
+Estas regras valem para todas as aulas (estão em `AGENTS.md` e no método):
+
+- **Registro acadêmico:** voz impessoal, vocabulário preciso, citação
+  autor-data no texto e fontes em ABNT; fato, interpretação e hipótese
+  sempre distinguidos.
+- **Texto desenvolvido e acessível:** parágrafos longos e conectados, que
+  explicam o porquê (não resumos telegráficos). Sem limite de tamanho.
+- **Ressalvas de fonte em notas separadas** ("não confirmado", "consultado
+  só em resumo"), para não quebrar o fio da leitura.
+- **Cronologia clara:** em temas com sequência no tempo, uma linha do tempo
+  geral no início, uma parte por período, em ordem de data, cada uma aberta
+  por uma faixa de período, e uma síntese ("Em síntese") no fim.
+- **Você explica antes de ver a resposta**, os testes são desafiadores e a
+  aula termina com perguntas em aberto ("Para ir além").
+
+A aula `aulas/2026-11-05-bauhaus-por-dentro/` é a referência desse padrão.
+
 ## A base pedagógica
 
 1. **Teoria da Carga Cognitiva** (John Sweller): a memória de trabalho é

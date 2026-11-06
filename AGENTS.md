@@ -16,8 +16,18 @@ O que for exclusivo do Claude Code está marcado com **[Claude Code]**.
 - Sessões **sem teto de tempo nem de tamanho**: a aula tem a profundidade que
   o tema pedir e pode continuar em outra sessão. Quer que a aula o **instigue
   a procurar mais**, e não que o deixe satisfeito com pouco.
-- Tom desejado: **de revista, mas rigoroso** — envolvente, com exemplos
-  concretos, e todo número ou afirmação forte com fonte.
+- Registro desejado: **acadêmico** — terceira pessoa ou voz impessoal,
+  vocabulário conceitual preciso, citações autor-data no corpo do texto
+  (ABNT NBR 10520), distinção explícita entre fato, interpretação e hipótese.
+  Todo número ou afirmação forte com fonte. Detalhes na seção "Escrita" de
+  `.claude/skills/aula/SKILL.md`.
+- **Texto desenvolvido e acessível:** o aluno quer **entender**, então os
+  parágrafos são longos, conectados e explicam o porquê (não resumos
+  telegráficos); ressalvas de fonte ficam em notas separadas, para não
+  quebrar o fio. Regras em `.claude/skills/aula/SKILL.md`.
+- **Cronologia clara** em temas com sequência no tempo: ordem estritamente
+  cronológica, títulos com o período e uma faixa de período (`aula.periodo`)
+  abrindo cada parte.
 - Sempre em **português**. Fontes em inglês são bem-vindas, mas a explicação é em português.
 - **Sem memória entre sessões**: cada sessão começa do zero. Não mantenha
   arquivos de progresso do aluno.
@@ -34,7 +44,8 @@ O que for exclusivo do Claude Code está marcado com **[Claude Code]**.
 2. **Aprendizagem multimídia / codificação dual (Mayer, Paivio)** — palavra +
    imagem juntas ensinam melhor que só palavra, se seguirem os princípios:
    coerência (nada decorativo), sinalização, sem redundância, contiguidade
-   (texto colado na imagem), segmentação, pré-treino e tom conversacional.
+   (texto colado na imagem), segmentação e pré-treino (termos-chave antes
+   do conceito). O registro de linguagem é o acadêmico, não o conversacional.
 3. **Esforço produtivo** — ler uma explicação limpa dá só a sensação de
    entender. O aluno **explica com as próprias palavras antes de ver a
    resposta** (`aula.explique`; no chat, pedido em texto livre) e os quizzes
@@ -46,13 +57,19 @@ O que for exclusivo do Claude Code está marcado com **[Claude Code]**.
 
 ## Aula de referência
 
-A aula `aulas/2026-11-05-bauhaus-reconhecer-estilo/` é o **modelo de tom e de
+A aula `aulas/2026-11-05-bauhaus-reconhecer-estilo/` é o **modelo de
 estrutura** (o aluno gostou muito dela e pediu que as próximas se inspirem
 nela): uma ideia que gera o resto → uma lente de poucas perguntas → a mesma
 lente em casos cada vez mais difíceis, com a ajuda diminuindo → contrastes,
 mitos desfeitos e nuances, sempre com imagem real e texto ao lado. Os detalhes
 estão na seção "O molde de referência" de `.claude/skills/aula/SKILL.md`.
 Antes de escrever uma aula nova, leia o `aula.js` dela.
+
+**Padrão atual de escrita:** a aula `aulas/2026-11-05-bauhaus-por-dentro/` é a
+referência de **registro acadêmico, cronologia por períodos, parágrafos
+desenvolvidos, notas de fonte e sínteses de fim de parte**. Leia também o
+`aula.js` dela e siga esse padrão: a aula mais antiga continua válida como
+modelo de estrutura, mas a sua linguagem (tom de revista) foi substituída.
 
 ## Regras inegociáveis
 

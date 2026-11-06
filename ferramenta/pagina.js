@@ -16,7 +16,7 @@
 
   // ------------------------------------------------------------------ API
   const TIPOS = [
-    "inicio", "plano", "secao", "termos", "texto", "destaque",
+    "inicio", "plano", "secao", "periodo", "cronologia", "termos", "texto", "nota", "destaque",
     "exemplo", "completar", "problema", "explique",
     "diagrama", "figura", "imagem",
     "caso", "quiz", "alem", "fontes",
@@ -98,7 +98,13 @@
     if (!mermaidPronto) {
       mermaid.initialize({
         startOnLoad: false, theme: escuro() ? "dark" : "neutral", securityLevel: "strict",
-        fontFamily: "Inter, system-ui, sans-serif", themeVariables: { fontSize: "16px" },
+        fontFamily: "Inter, system-ui, sans-serif",
+        // Cores das faixas de `timeline` (contraste nos dois temas).
+        themeVariables: {
+          fontSize: "16px",
+          cScale0: "#8f4a2c", cScale1: "#2d5f8a", cScale2: "#2f7d4f", cScale3: "#7a4a8a",
+          cScaleLabel0: "#ffffff", cScaleLabel1: "#ffffff", cScaleLabel2: "#ffffff", cScaleLabel3: "#ffffff",
+        },
       });
       mermaidPronto = true;
     }
@@ -112,6 +118,19 @@
       const vb = svg && svg.viewBox && svg.viewBox.baseVal;
       if (vb && vb.height && vb.width / vb.height > 2.2) {
         const par = alvo.closest(".par"); if (par) par.classList.add("empilhado");
+      }
+      // Diagrama muito mais largo que a coluna (ex.: linha do tempo com muitos
+      // marcos): em vez de encolher o texto até ficar ilegível, mantém o tamanho
+      // natural e permite rolar para o lado.
+      const disponivel = alvo.clientWidth || 700;
+      if (vb && vb.width > disponivel * 1.35) {
+        svg.style.maxWidth = "none";
+        svg.style.width = Math.round(vb.width) + "px";
+        svg.style.height = "auto";
+        alvo.classList.add("rolavel");
+        if (alvo.parentNode && !alvo.parentNode.querySelector(".dica-rolagem")) {
+          alvo.insertAdjacentHTML("afterend", '<div class="dica-rolagem">← role para o lado para ver o diagrama inteiro →</div>');
+        }
       }
     } catch (e) {
       const lixo = document.getElementById("d" + id); if (lixo) lixo.remove();
@@ -156,6 +175,62 @@
       return w;
     },
 
+    // Faixa cronológica: mostra ONDE a parte atual se situa na linha do tempo
+    // da aula (a faixa colorida é o período; o fundo é a escala inteira).
+    periodo(d) {
+      const de = Number(d.de), ate = Number(d.ate);
+      const esc = Array.isArray(d.escala) && d.escala.length === 2 ? d.escala.map(Number) : [de, ate];
+      const total = Math.max(esc[1] - esc[0], 1);
+      const pct = (x) => Math.min(100, Math.max(0, ((x - esc[0]) / total) * 100));
+      const c = novo("div", "cartao periodo coluna");
+      c.appendChild(novo("span", "rotulo", "Período"));
+      const topo = novo("div", "periodo-topo");
+      topo.appendChild(novo("span", "anos", escapar(de === ate ? de : de + "–" + ate)));
+      if (d.titulo) topo.appendChild(novo("span", "periodo-titulo", md(d.titulo, true)));
+      c.appendChild(topo);
+      if (d.detalhe) c.appendChild(novo("div", "periodo-detalhe", md(d.detalhe, true)));
+      const barra = novo("div", "periodo-barra");
+      barra.setAttribute("role", "img");
+      barra.setAttribute("aria-label", "Período " + de + " a " + ate + ", na escala " + esc[0] + " a " + esc[1]);
+      const faixa = novo("div", "periodo-faixa");
+      faixa.style.left = pct(de) + "%";
+      faixa.style.width = Math.max(pct(ate) - pct(de), 1.2) + "%";
+      barra.appendChild(faixa);
+      c.appendChild(barra);
+      c.appendChild(novo("div", "periodo-eixo", "<span>" + escapar(esc[0]) + "</span><span>" + escapar(esc[1]) + "</span>"));
+      if (Array.isArray(d.marcos) && d.marcos.length) {
+        const ul = novo("ul", "periodo-marcos");
+        d.marcos.forEach((m) => ul.appendChild(novo("li", null, md(m, true))));
+        c.appendChild(ul);
+      }
+      return c;
+    },
+
+    // Linha do tempo vertical e datada, agrupada em seções (ex.: lugares ou
+    // fases). Aceita `secoes: [{ nome, eventos: [{ quando, texto }] }]` ou
+    // `eventos: [{ quando, texto }]` sem agrupamento.
+    cronologia(d) {
+      const c = novo("div", "cartao cronologia coluna");
+      c.appendChild(novo("span", "rotulo", "Linha do tempo"));
+      if (d.titulo) c.appendChild(novo("h3", null, md(d.titulo, true)));
+      const grupos = Array.isArray(d.secoes) ? d.secoes : [{ nome: "", eventos: d.eventos || [] }];
+      grupos.forEach((g, i) => {
+        const sec = novo("div", "cron-secao cron-c" + (i % 4));
+        if (g.nome) sec.appendChild(novo("div", "cron-secao-nome", md(g.nome, true)));
+        const ul = novo("ul", "cron-lista");
+        (g.eventos || []).forEach((e) => {
+          const li = novo("li");
+          li.appendChild(novo("span", "cron-quando", escapar(e.quando)));
+          li.appendChild(novo("span", "cron-texto", md(e.texto, true)));
+          ul.appendChild(li);
+        });
+        sec.appendChild(ul);
+        c.appendChild(sec);
+      });
+      if (d.legenda) c.appendChild(novo("div", "legenda", md(d.legenda, true)));
+      return c;
+    },
+
     termos(d) {
       const lista = Array.isArray(d) ? d : (d.termos || []);
       const c = novo("div", "cartao termos coluna");
@@ -167,6 +242,14 @@
     },
 
     texto(d) { return novo("div", "coluna prosa", md(typeof d === "string" ? d : d.texto)); },
+
+    // Nota de fonte: ressalvas ("não confirmado", "consultado só em resumo",
+    // divergências) ficam FORA do fluxo do texto, para não o interromper.
+    nota(d) {
+      const w = novo("div", "coluna");
+      w.appendChild(novo("div", "nota", md(typeof d === "string" ? d : d.texto)));
+      return w;
+    },
 
     destaque(d) {
       const w = novo("div", "coluna");
